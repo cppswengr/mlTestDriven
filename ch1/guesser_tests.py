@@ -44,3 +44,21 @@ def given_two_datapoints_when_asked_to_guess_test():
     # then
     assert guessed_number in previously_chosen_numbers, \
         'the guess should be one of the previously chosen numbers'
+
+
+def given_multiple_datapoints_when_asked_to_guess_many_times_test():
+
+    # given
+    number_guesser = NumberGuesser()
+    previously_chosen_numbers = [1, 2, 5]
+    number_guesser.numbers_were(previously_chosen_numbers)
+
+    # when
+    guessed_numbers = [number_guesser.guess() for i in range(0, 100)]
+
+    # then
+    for guessed_number in guessed_numbers:
+        assert guessed_number in previously_chosen_numbers, \
+            'every guess should be one of the previously chosen numbers'
+        assert len(set(guessed_numbers)) > 1, \
+            "It shouldn't always guess the same number."
