@@ -41,10 +41,10 @@ def detect_values_greater_than_five_test():
                           ],
                           [1, 0, 0, 0])
 
-    nt.assert_equal(the_perceptron.predict([8, -1]),  1)
-    nt.assert_equal(the_perceptron.predict([5, -1]),  1)
-    nt.assert_equal(the_perceptron.predict([2, -1]),  0)
-    nt.assert_equal(the_perceptron.predict([0, -1]),  0)
-    nt.assert_equal(the_perceptron.predict([-2, -1]), 0)
+    nt.assert_equal(the_perceptron.predict([8]),  1)
+    nt.assert_equal(the_perceptron.predict([5]),  1)
+    nt.assert_equal(the_perceptron.predict([2]),  0)
+    nt.assert_equal(the_perceptron.predict([0]),  0)
+    nt.assert_equal(the_perceptron.predict([-2]), 0)
 
 
