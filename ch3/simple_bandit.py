@@ -8,9 +8,14 @@ class SimpleBandit:
 
     def choose_treatment(self):
         self._selection_count += 1
+
+        # explore for the first 10 iterations
         if self._selection_count <= 5 * len(self._treatments):
             return self._treatments[(self._selection_count - 1) // 5]
         else:
+
+            # exploit the results of the exploration for the next 5 iterations
+            # then return to exploring
             self._exploitation_count += 1
             if self._exploitation_count == 5:
                 self._exploitation_count = 0
